@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,4 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::get('/index', 'UsersController')->only(['index', 'edit'])->name('index');
-
-Route::get('/index', 'UsersController@index')->name('index');
-
-Route::get('/index', 'UsersController@edit')->name('index');
+Route::resource('/index', 'UsersController')->only(['index', 'edit', 'update']);

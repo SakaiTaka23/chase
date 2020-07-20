@@ -18,6 +18,12 @@ class UsersController extends Controller
 
     public function edit()
     {
+        $auth = Auth::user();
+        return view('editinfo', compact('auth'));
+    }
+
+    public function update()
+    {
         return view('test');
     }
 }
