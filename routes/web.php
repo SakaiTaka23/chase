@@ -19,4 +19,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/index', 'UsersController')->only(['index', 'edit'])->name('index');
+
+Route::get('/index', 'UsersController@index')->name('index');
+
+Route::get('/index', 'UsersController@edit')->name('index');
