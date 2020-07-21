@@ -8,7 +8,8 @@
                 <div class="card-header">{{ __('学生情報変更画面') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('users.update',['auth'=>$auth]) }}">
+                    {{-- <form method="POST" action="{{ route('index.update') }}"> --}}
+                    <form method="POST">
                         @csrf
                         @method('PUT')
 

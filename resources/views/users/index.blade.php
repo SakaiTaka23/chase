@@ -3,8 +3,8 @@
 @section('content')
 <div class="container">
 
-    <a class="btn btn-primary" href="index/{{ $auth->id }}/edit">プロフィール編集</a>
-
+    {{-- <a class="btn btn-primary" href="index/{{ $auth->id }}/edit">プロフィール編集</a> --}}
+    <a class="btn btn-primary" href="{{ route('index.edit') }}">プロフィール編集</a>
     <div class="row justify-content-center">
 
         <table class="table-bordered">
