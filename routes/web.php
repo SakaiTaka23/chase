@@ -21,4 +21,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::resource('index', 'UsersController')->only(['index', 'edit', 'update', 'destroy']);
-Route::get('/search/{key}', 'UsersSearchController@index')->middleware('auth');
+Route::get('search', 'UsersSearchController@index')->name('search');
