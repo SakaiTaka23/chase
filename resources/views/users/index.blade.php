@@ -55,5 +55,8 @@
             @endforeach
         </table>
     </div>
+    <div class="d-flex justify-content-center my-5">
+        {{ $users->links() }}
+    </div>
 </div>
 @endsection

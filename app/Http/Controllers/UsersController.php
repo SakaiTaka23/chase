@@ -17,7 +17,7 @@ class UsersController extends Controller
 
     public function index()
     {
-        $users = User::orderBy('updated_at', 'desc')->get();
+        $users = User::orderBy('updated_at', 'desc')->paginate(10);
         $auth = Auth::user();
 
         return view('users.index', compact('users', 'auth'));
