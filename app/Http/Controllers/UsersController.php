@@ -19,8 +19,9 @@ class UsersController extends Controller
     {
         $users = User::orderBy('updated_at', 'desc')->paginate(10);
         $auth = Auth::user();
+        $count = User::count();
 
-        return view('users.index', compact('users', 'auth'));
+        return view('users.index', compact('users', 'auth', 'count'));
     }
 
     public function edit()

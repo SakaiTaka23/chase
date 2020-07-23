@@ -24,10 +24,11 @@ class UsersSearchController extends Controller
             $query->where('place', 'like', '%' . $place . '%');
         }
 
-        $users = $query->orderBy('updated_at', 'desc')->get();
+        $users = $query->orderBy('updated_at', 'desc')->paginate(10);
+        $count = $query->count();
 
         //dd($query->toSql(), $query->getBindings(), $users);
 
-        return view('users.index', compact('users', 'auth'));
+        return view('users.index', compact('users', 'auth', 'count'));
     }
 }
