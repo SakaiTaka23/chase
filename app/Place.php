@@ -10,9 +10,4 @@ class Place extends Model
     protected $fillable = [
         'place',
     ];
-
-    public function user()
-    {
-        return $this->hasMany('App/User');
-    }
 }

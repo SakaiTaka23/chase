@@ -21,4 +21,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::resource('index', 'UsersController')->only(['index', 'edit', 'update', 'destroy']);
-Route::get('search', 'UsersSearchController@index')->name('search');
+Route::resource('search', 'UsersSearchController')->only(['index']);
+Route::resource('place', 'PlaceController')->only(['index']);

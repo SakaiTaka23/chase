@@ -15,20 +15,28 @@ class UsersSearchController extends Controller
         $query = User::query();
         $id_name = $request->input('id_name');
         $place = $request->input('place');
-        if (isset($id_name)) {
-            $query->where('last_name', 'like', '%' . $id_name . '%')
-                ->orWhere('first_name', 'like', '%' . $id_name . '%')
-                ->orWhere('student_id', 'like', '%' . $id_name . '%');
+
+        if (isset($id_name) && isset($place)) {
+            $query->where('place', 'like', '%' . $place . '%')
+                ->where('last_name', 'like', "%{$id_name}%")
+                ->orwhere('first_name', 'like', "%{$id_name}%")
+                ->orwhere('student_id', 'like', "%{$id_name}%");
+        } else {
+            if (isset($id_name)) {
+                $query->where('last_name', 'like', "%{$id_name}%")
+                    ->orwhere('first_name', 'like', "%{$id_name}%")
+                    ->orwhere('student_id', 'like', "%{$id_name}%");
+            }
+            if (isset($place)) {
+                $query->where('place', 'like', '%' . $place . '%');
+            }
         }
-        if (isset($place)) {
-            $query->where('place', 'like', '%' . $place . '%');
-        }
+
+        //dd($query->toSql(), $query->getBindings());
 
         $users = $query->orderBy('updated_at', 'desc')->paginate(10);
         $count = $query->count();
 
-        //dd($query->toSql(), $query->getBindings(), $users);
-
-        return view('users.index', compact('users', 'auth', 'count'));
+        return view('users.index', compact('users', 'auth', 'count', 'id_name', 'place'));
     }
 }

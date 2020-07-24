@@ -25,7 +25,7 @@ class UsersTableSeeder extends Seeder
             '山本',
             '中村',
             '小林',
-            '加藤'
+            '加藤',
         ];
 
         $first = [
@@ -38,15 +38,15 @@ class UsersTableSeeder extends Seeder
             '陽葵',
             '結愛',
             '咲良',
-            '紬'
+            '紬',
         ];
 
         $place = [
             '学内',
+            '研究室',
             '家',
             '外出',
-            '研究室',
-            '家(長期外出)'
+            '長期不在',
         ];
 
         $data_want = 30;

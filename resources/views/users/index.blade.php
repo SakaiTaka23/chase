@@ -13,7 +13,8 @@
         </form>
     </div>
 
-    <form method="GET" action="{{ route('search') }}" class="row d-flex justify-content-around align-items-baseline">
+    <form method="GET" action="{{ route('search.index') }}"
+        class="row d-flex justify-content-around align-items-baseline">
         @csrf
         <div class="d-flex justify-content-end">
             <div class="form-group row">
@@ -21,7 +22,7 @@
 
                 <div class="col-md-6">
                     <input id="id_name" type="text" class="form-control" name="id_name" placeholder="学籍番号 氏 名"
-                        autofocus>
+                        value="{{ $id_name ?? ''}}" autofocus>
                 </div>
             </div>
 
@@ -29,7 +30,8 @@
                 <label for="place" class="col-md-4 col-form-label text-md-right">{{ __('場所検索：') }}</label>
 
                 <div class="col-md-6">
-                    <input id="place" type="text" class="form-control" name="place" placeholder="場所" autofocus>
+                    <input id="place" type="text" class="form-control" name="place" placeholder="場所"
+                        value="{{ $place ?? ''}}" autofocus>
                 </div>
             </div>
         </div>
@@ -39,15 +41,21 @@
         </button>
     </form>
 
-    @if ($count == 0)
-    <h3 class="text-primary ml-3">その条件では見つかりませんでした</h3>
-    @else
-    <h3 class="text-primary ml-3">{{ $count }}件見つかりました</h3>
-    @endif
+    <div class="row d-flex justify-content-around align-items-baseline">
+        @if ($count == 0)
+        <h3 class="text-primary ml-3">その条件では見つかりませんでした</h3>
+        @else
+        <h3 class="text-primary ml-3">{{ $count }}件見つかりました</h3>
+        @endif
+
+        {{ $users->links() }}
+
+        <a class="btn btn-info" href="{{ route('place.index') }}">割合を表示</a>
+    </div>
 
     <div class="d-flex justify-content-center row">
 
-        <table class="table table-hover">
+        <table class="table table-hover mt-2">
             <thead class="thead-light">
                 <tr>
                     <th>学籍番号</th>
@@ -71,8 +79,5 @@
         </table>
     </div>
 
-    <div class="d-flex justify-content-center my-5">
-        {{ $users->links() }}
-    </div>
 </div>
 @endsection
