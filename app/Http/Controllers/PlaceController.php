@@ -34,6 +34,7 @@ class PlaceController extends Controller
         $sort = array_combine($keys, $counts);
         arsort($sort);
         [$keys, $counts] = Arr::divide($sort);
-        return view('test');
+        //dd($keys, $counts);
+        return view('chart', compact('keys', 'counts'));
     }
 }
