@@ -1,12 +1,15 @@
 console.log('test');
 const { controllers } = require('chart.js');
+const labels = '{{ $keys }}';
+const data = '{{ $count }}';
+console.log(labels,data);
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'pie',
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
-            label: '# of Votes',
+            label: '学生居場所割合',
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
