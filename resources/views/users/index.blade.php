@@ -6,6 +6,8 @@
     <div class="row d-flex justify-content-between mb-4">
         <a class="btn btn-primary" href="{{ route('index.edit',$auth->id) }}">プロフィール編集</a>
 
+        <a class="btn btn-primary" href="{{ route('place.edit',$auth->id) }}">場所変更</a>
+
         <form method="POST" action="{{ route('index.destroy',$auth->id) }}">
             @csrf
             @method('DELETE')
