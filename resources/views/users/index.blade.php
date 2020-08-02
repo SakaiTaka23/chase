@@ -50,7 +50,7 @@
         <h3 class="text-primary ml-3">{{ $count }}件見つかりました</h3>
         @endif
 
-        {{ $users->links() }}
+        {{ $users->appends(request()->query())->links('vendor/pagination/pagination_view') }}
 
         <a class="btn btn-info" href="{{ route('place.index') }}">割合を表示</a>
     </div>

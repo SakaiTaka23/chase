@@ -27,7 +27,17 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="place_s" class="col-md-4 col-form-label text-md-right">{{ __('キーワード') }}</label>
 
+                            <div class="col-md-6">
+                                <select name="place_s" class="form-control">
+                                    @foreach ($places as $place)
+                                    <option value="{{ $place->place }}">{{ $place->place }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -42,4 +52,7 @@
         </div>
     </div>
 </div>
+
+<script src="{{ mix('js/key_select.js') }}"></script>
+
 @endsection

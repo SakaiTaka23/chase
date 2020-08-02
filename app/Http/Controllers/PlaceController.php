@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Place;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
@@ -14,7 +15,7 @@ class PlaceController extends Controller
     {
         //出力：キーワード、それらの総数 (大きい順でソート)
         $counts = [];
-        $key = DB::table('place')->pluck('place');
+        $key = DB::table('places')->pluck('place');
         $keys = [];
         foreach ($key as $k) {
             array_push($keys, $k);
@@ -43,7 +44,8 @@ class PlaceController extends Controller
     public function edit()
     {
         $auth = Auth::user();
-        return view('edit.place', compact('auth'));
+        $places = Place::all();
+        return view('edit.place', compact('auth', 'places'));
     }
 
     public function update(Request $request, $id)

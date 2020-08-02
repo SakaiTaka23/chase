@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Place;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -27,7 +28,8 @@ class UsersController extends Controller
     public function edit()
     {
         $auth = Auth::user();
-        return view('edit.all', compact('auth'));
+        $places = Place::all();
+        return view('edit.all', compact('auth', 'places'));
     }
 
     public function update(Request $request, $id)
