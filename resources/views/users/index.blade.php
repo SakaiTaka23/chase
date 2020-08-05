@@ -4,7 +4,8 @@
 <div class="container">
 
     <div class="row d-flex justify-content-between mb-4">
-        <a class="btn btn-primary" href="{{ route('index.edit',$auth->id) }}">プロフィール編集</a>
+        {{-- <a class="btn btn-primary" href="{{ route('index.edit',$auth->id) }}">プロフィール編集</a> --}}
+        <a class="btn btn-primary" href="{{ url('index/'.$auth->id.'/edit') }}">プロフィール編集</a>
 
         <a class="btn btn-primary" href="{{ route('place.edit',$auth->id) }}">場所変更</a>
 

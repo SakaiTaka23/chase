@@ -107,8 +107,8 @@ class UsersController extends Controller
 
         //dd($query->toSql(), $query->getBindings());
 
-        $users = $query->orderBy('updated_at', 'desc')->paginate(10);
         $count = $query->count();
+        $users = $query->orderBy('updated_at', 'desc')->paginate(10);
 
         return view('admin.index', compact('users', 'count', 'id_name', 'place'));
     }

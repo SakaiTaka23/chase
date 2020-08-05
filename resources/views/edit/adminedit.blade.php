@@ -51,7 +51,7 @@
                             <div class="col-md-6">
                                 <input id="student_id" type="student_id"
                                     class="form-control @error('student_id') is-invalid @enderror" name="student_id"
-                                    value="{{ $user->student_id }}" required autocomplete="student_id">
+                                    value="{{ $user->student_id }}" readonly required autocomplete="student_id">
 
                                 @error('student_id')
                                 <span class="invalid-feedback" role="alert">

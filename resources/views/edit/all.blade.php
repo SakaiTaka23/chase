@@ -8,8 +8,7 @@
                 <div class="card-header">{{ __('学生情報変更画面') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('index.update',[$auth->id]) }}">
-                        {{-- <form method="POST" action="{{ action('UsersController@update',[$auth->id]) }}"> --}}
+                    <form method="POST" action="{{ url('index/'.$auth->id) }}">
                         @csrf
                         @method('PUT')
 

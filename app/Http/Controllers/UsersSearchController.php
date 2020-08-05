@@ -32,10 +32,10 @@ class UsersSearchController extends Controller
             }
         }
 
-        //dd($query->toSql(), $query->getBindings());
-
-        $users = $query->orderBy('updated_at', 'desc')->paginate(10);
         $count = $query->count();
+        $users = $query->orderBy('updated_at', 'desc')->paginate(10);
+
+        //dd($query->toSql(), $query->getBindings(), $count);
 
         return view('users.index', compact('users', 'auth', 'count', 'id_name', 'place'));
     }
