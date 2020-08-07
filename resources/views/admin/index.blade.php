@@ -4,7 +4,9 @@
 <div class="container">
 
     @if (Session::has('message'))
-    <p>{{ session('message') }}</p>
+    <div class="d-flex justify-content-center">
+        <p class="text-info">{{ session('message') }}</p>
+    </div>
     @endif
 
     <form method="GET" action="{{ route('admin.search') }}"
@@ -35,16 +37,16 @@
         </button>
     </form>
 
-    <div class="row d-flex justify-content-around align-items-baseline my-3">
+    <div class="d-flex align-items-baseline">
         @if ($count == 0)
         <h3 class="text-primary ml-3">その条件では見つかりませんでした</h3>
         @else
         <h3 class="text-primary ml-3">{{ $count }}件見つかりました</h3>
         @endif
+    </div>
 
+    <div class="d-flex justify-content-center">
         {{ $users->appends(request()->query())->links('vendor/pagination/pagination_view') }}
-
-        <a class="btn btn-info" href="{{ route('admin.percent') }}">割合を表示</a>
     </div>
 
     <table class="table table-hover mt-2">

@@ -13,6 +13,7 @@ class PlaceController extends Controller
 {
     public function index()
     {
+        $auth = Auth::user();
         //出力：キーワード、それらの総数 (大きい順でソート)
         $counts = [];
         $key = DB::table('places')->pluck('place');
@@ -38,7 +39,7 @@ class PlaceController extends Controller
         arsort($sort);
         [$keys, $counts] = Arr::divide($sort);
         //dd($keys, $counts);
-        return view('chart', compact('keys', 'counts'));
+        return view('chart', compact('keys', 'counts', 'auth'));
     }
 
     public function edit()
@@ -57,8 +58,6 @@ class PlaceController extends Controller
         $auth = User::find($id);
         $auth->fill($params)->update();
 
-        $message = '場所を更新しました！';
-
-        return view('message', compact('message'));
+        return redirect('index')->with('message', '場所を更新しました！');
     }
 }

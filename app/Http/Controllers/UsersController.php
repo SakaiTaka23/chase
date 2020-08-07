@@ -46,9 +46,7 @@ class UsersController extends Controller
         $auth = User::find($id);
         $auth->fill($params)->update();
 
-        $message = '登録情報を更新しました!';
-
-        return view('message', compact('message'));
+        return redirect('index')->with('message', '登録内容を変更しました！');
     }
 
     public function destroy($id)
@@ -57,6 +55,6 @@ class UsersController extends Controller
 
         $message = '退会しました';
 
-        return view('message', compact('message'));
+        return view('welcome', compact('message'));
     }
 }

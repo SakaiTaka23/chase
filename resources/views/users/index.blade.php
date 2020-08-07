@@ -3,18 +3,11 @@
 @section('content')
 <div class="container">
 
-    <div class="row d-flex justify-content-between mb-4">
-        {{-- <a class="btn btn-primary" href="{{ route('index.edit',$auth->id) }}">プロフィール編集</a> --}}
-        <a class="btn btn-primary" href="{{ url('index/'.$auth->id.'/edit') }}">プロフィール編集</a>
-
-        <a class="btn btn-primary" href="{{ route('place.edit',$auth->id) }}">場所変更</a>
-
-        <form method="POST" action="{{ route('index.destroy',$auth->id) }}">
-            @csrf
-            @method('DELETE')
-            <button class="btn btn-danger">退会する</button>
-        </form>
+    @if (Session::has('message'))
+    <div class="d-flex justify-content-center">
+        <p class="text-info">{{ session('message') }}</p>
     </div>
+    @endif
 
     <form method="GET" action="{{ route('search.index') }}"
         class="row d-flex justify-content-around align-items-baseline">
@@ -39,21 +32,21 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-success mr-5">
+        <button type="submit" class="btn btn-success mr-2">
             {{ __('検索') }}
         </button>
     </form>
 
-    <div class="row d-flex justify-content-around align-items-baseline">
+    <div class="d-flex align-items-baseline ml-4 mt-2">
         @if ($count == 0)
         <h3 class="text-primary ml-3">その条件では見つかりませんでした</h3>
         @else
         <h3 class="text-primary ml-3">{{ $count }}件見つかりました</h3>
         @endif
+    </div>
 
+    <div class="d-flex justify-content-center">
         {{ $users->appends(request()->query())->links('vendor/pagination/pagination_view') }}
-
-        <a class="btn btn-info" href="{{ route('place.index') }}">割合を表示</a>
     </div>
 
     <div class="d-flex justify-content-center row">
