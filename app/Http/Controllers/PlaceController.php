@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Place;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
@@ -12,9 +13,10 @@ class PlaceController extends Controller
 {
     public function index()
     {
+        $auth = Auth::user();
         //出力：キーワード、それらの総数 (大きい順でソート)
         $counts = [];
-        $key = DB::table('place')->pluck('place');
+        $key = DB::table('places')->pluck('place');
         $keys = [];
         foreach ($key as $k) {
             array_push($keys, $k);
@@ -37,13 +39,14 @@ class PlaceController extends Controller
         arsort($sort);
         [$keys, $counts] = Arr::divide($sort);
         //dd($keys, $counts);
-        return view('chart', compact('keys', 'counts'));
+        return view('chart', compact('keys', 'counts', 'auth'));
     }
 
     public function edit()
     {
         $auth = Auth::user();
-        return view('edit.place', compact('auth'));
+        $places = Place::all();
+        return view('edit.place', compact('auth', 'places'));
     }
 
     public function update(Request $request, $id)
@@ -55,8 +58,6 @@ class PlaceController extends Controller
         $auth = User::find($id);
         $auth->fill($params)->update();
 
-        $message = '場所を更新しました！';
-
-        return view('message', compact('message'));
+        return redirect('index')->with('message', '場所を更新しました！');
     }
 }

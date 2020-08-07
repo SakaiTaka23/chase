@@ -51,8 +51,8 @@ class UsersTableSeeder extends Seeder
 
         $data_want = 30;
         for ($i = 1; $i <= $data_want; $i++) {
-            $rand_m = str_pad(rand(7, 8), 2, 0, STR_PAD_LEFT);
-            $rand_d = str_pad(rand(1, 31), 2, 0, STR_PAD_LEFT);
+            $rand_m = str_pad(rand(6, 7), 2, 0, STR_PAD_LEFT);
+            $rand_d = str_pad(rand(1, 30), 2, 0, STR_PAD_LEFT);
             $rand_H = str_pad(rand(1, 23), 2, 0, STR_PAD_LEFT);
             $rand_i = str_pad(rand(0, 59), 2, 0, STR_PAD_LEFT);
             DB::table('users')->insert([

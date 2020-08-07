@@ -21,7 +21,7 @@ class PlaceTableSeeder extends Seeder
         ];
 
         foreach ($place as $p) {
-            DB::table('place')->insert([
+            DB::table('places')->insert([
                 'place' => $p,
             ]);
         }

@@ -8,8 +8,7 @@
                 <div class="card-header">{{ __('学生情報変更画面') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('index.update',[$auth->id]) }}">
-                        {{-- <form method="POST" action="{{ action('UsersController@update',[$auth->id]) }}"> --}}
+                    <form method="POST" action="{{ url('index/'.$auth->id) }}">
                         @csrf
                         @method('PUT')
 
@@ -104,6 +103,17 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="place_s" class="col-md-4 col-form-label text-md-right">{{ __('キーワード') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="place_s" class="form-control">
+                                    @foreach ($places as $place)
+                                    <option value="{{ $place->place }}">{{ $place->place }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
 
 
                         <div class="form-group row mb-0">
@@ -119,4 +129,7 @@
         </div>
     </div>
 </div>
+
+<script src="{{ mix('js/key_select.js') }}"></script>
+
 @endsection

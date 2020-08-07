@@ -8,7 +8,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name','Laravel') }}</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -35,39 +35,6 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{ route('place.edit',$auth->id) }}">場所変更<span
-                                        class="sr-only">(current)</span></a>
-                            </li>
-
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{ route('place.index') }}">割合表示<span
-                                        class="sr-only">(current)</span></a>
-                            </li>
-
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{ url('index/'.$auth->id.'/edit') }}">プロフィール編集<span
-                                        class="sr-only">(current)</span></a>
-                            </li>
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    退会する
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <form method="POST" action="{{ url('index/'.$auth->id) }}">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn">確認</button>
-                                    </form>
-                                </div>
-                            </li>
-
-                        </ul>
-
 
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
