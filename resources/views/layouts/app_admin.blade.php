@@ -36,12 +36,14 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
+                        @auth
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
                                 <a class="nav-link" href="{{ route('admin.percent') }}">割合を表示<span
                                         class="sr-only">(current)</span></a>
                             </li>
                         </ul>
+                        @endauth
 
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
