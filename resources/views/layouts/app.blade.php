@@ -36,6 +36,7 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
+                        @auth
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
                                 <a class="nav-link" href="{{ route('place.edit',$auth->id) }}">場所変更<span
@@ -67,6 +68,7 @@
                             </li>
 
                         </ul>
+                        @endauth
 
 
                         <!-- Right Side Of Navbar -->
