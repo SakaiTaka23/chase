@@ -9,10 +9,10 @@ laravel・データベースの環境は持っていることが前提
 git clone https://github.com/SakaiTaka23/chase.git  
 cd chase  
 composer install  
-php artisan key:generate  
 データベースを作成  
 cp .env.example .env  
 .envファイルのデータベース、ユーザーネーム、パスワードの修正  
+php artisan key:generate  
 php artisan migrate:fresh --seed  
 php artisan serve  
 
