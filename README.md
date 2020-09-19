@@ -1,23 +1,27 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# Chase
+会員の居場所を知ることができるアプリ
 
-# オリジナルのアプリを作って行くよ！
-学校で作ったものをLaravelで機能を増やして書き直していく！
+# インストール
+laravel・データベースの環境は持っていることが前提
 
-・会員が今どこにいるかの一覧をみることができるシステム
+git clone https://github.com/SakaiTaka23/chase.git  
+cd chase  
+composer install  
+データベースを作成  
+cp .env.example .env  
+.envファイルのデータベース、ユーザーネーム、パスワードの修正  
+php artisan key:generate  
+php artisan migrate:fresh --seed  
+php artisan serve  
 
-
-# url
+# ログインurl
 ## ユーザーurl
 
-php artisan serve 
-
-で出てきたデフォルト
+{domain}/login
 
 ## 管理者url
 
-デフォルト/admin/login 
-
-でアクセス
+{domain}/admin/login 
 
 # 注意点
 ## 新規登録
