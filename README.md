@@ -4,6 +4,7 @@
 # インストール
 laravel・データベースの環境は持っていることが前提
 
+```shell
 git clone https://github.com/SakaiTaka23/chase.git  
 cd chase  
 composer install  
@@ -13,8 +14,12 @@ cp .env.example .env
 php artisan key:generate  
 php artisan migrate:fresh --seed  
 php artisan serve  
+```
+
+
 
 # ログインurl
+
 ## ユーザーurl
 
 {domain}/login
