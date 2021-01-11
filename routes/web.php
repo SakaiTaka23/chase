@@ -20,10 +20,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::resource('index', 'UsersController')->only(['index', 'edit', 'update', 'destroy']);
-// Route::resource('search', 'UsersSearchController')->only(['index']);
-// Route::resource('place', 'PlaceController')->only(['index', 'edit', 'update']);
-
 Route::group(['middleware' => 'auth:user'], function () {
     Route::resource('index', 'UsersController')->only(['index', 'edit', 'update', 'destroy']);
     Route::resource('search', 'UsersSearchController')->only(['index']);
@@ -44,5 +40,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('search', 'Admin\UsersController@search')->name('admin.search');
     Route::get('percent', 'Admin\UsersController@percent')->name('admin.percent');
     Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
-    //Route::get('home',      'Admin\HomeController@index')->name('admin.home');
 });

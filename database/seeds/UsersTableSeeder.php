@@ -51,7 +51,7 @@ class UsersTableSeeder extends Seeder
 
         $data_want = 30;
         for ($i = 1; $i <= $data_want; $i++) {
-            $rand_m = str_pad(rand(6, 7), 2, 0, STR_PAD_LEFT);
+            $rand_m = str_pad(rand(11, 12), 2, 0, STR_PAD_LEFT);
             $rand_d = str_pad(rand(1, 30), 2, 0, STR_PAD_LEFT);
             $rand_H = str_pad(rand(1, 23), 2, 0, STR_PAD_LEFT);
             $rand_i = str_pad(rand(0, 59), 2, 0, STR_PAD_LEFT);
@@ -62,7 +62,7 @@ class UsersTableSeeder extends Seeder
                 'password' => Hash::make('password'),
                 'place' => Arr::random($place),
                 'created_at' => now(),
-                'updated_at' => date('Y-' . $rand_m . '-' . $rand_d . ' ' . $rand_H . ':' . $rand_i . ':s'),
+                'updated_at' => date('2020-' . $rand_m . '-' . $rand_d . ' ' . $rand_H . ':' . $rand_i . ':s'),
             ]);
         }
     }
